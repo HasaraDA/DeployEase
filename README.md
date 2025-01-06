@@ -73,7 +73,7 @@ Run the application locally:
 node index.js
 ```
 
-By default, the application runs on **http://localhost:3000**.
+By default, the application runs on **http://localhost:5000**.
 
 ---
 
