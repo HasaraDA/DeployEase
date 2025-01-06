@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Playbook</title>
+    <style>
+        /* Resetting default styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .cloud-icon {
+            font-size: 30px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(74, 144, 226, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="cloud-icon">☁️</span> AWS Instance Configuration</h1>
+            <p>Configure your AWS instance easily with this form</p>
+        </header>
+
+        <form id="awsForm" method="POST" target="_blank">
+            <label for="instance_name">Instance Name:</label>
+            <input type="text" id="instance_name" name="instance_name" placeholder="Enter instance name" required>
+            </select><br><br>
+
+            <label for="image">Image:</label>
+            <select id="image" name="image" required>
+                <option value="" disabled selected>Select an image</option>
+                <option value="ami-06650ca7ed78ff6fa">Ubuntu</option>
+            </select><br><br>
+
+            <label for="instance_type">Instance Type:</label>
+            <select id="instance_type" name="instance_type" required>
+                <option value="" disabled selected>Select instance type</option>
+                <option value="t2.micro">t2.micro</option>
+                <option value="t2.small">t2.small</option>
+                <option value="t2.medium">t2.medium</option>
+            </select><br><br>
+
+            <label for="keypair">Keypair:</label>
+            <select id="keypair" name="keypair" required>
+                <option value="" disabled selected>Select a keypair</option>
+                <option value="MyKeyPair">MyKeyPair</option>
+            </select><br><br>
+
+            <label for="region">Region:</label>
+            <select id="region" name="region" required>
+                <option value="" disabled selected>Select a region</option>
+                <option value="ap-southeast-1">ap-southeast-1</option>
+                <option value="us-west-1">us-west-1</option>
+                <option value="us-east-1">us-east-1</option>
+            </select><br><br>
+
+            <label for="security_group_id">Security Group ID:</label>
+            <select id="security_group_id" name="security_group_id" required>
+                <option value="" disabled selected>Select a security group</option>
+                <option value="sg-07d01c4aa4a3000fb">Singapore My Default Security Group</option>
+            </select><br><br>
+
+            <label for="vpc_id">VPC ID:</label>
+            <select id="vpc_id" name="vpc_id" required>
+                <option value="" disabled selected>Select a VPC</option>
+                <option value="vpc-0e618698bbfa4ff91">Singapore My Default VPC</option>
+            </select><br><br>
+
+            <label for="subnet_id">Subnet ID:</label>
+            <select id="subnet_id" name="subnet_id" required>
+                <option value="" disabled selected>Select a subnet</option>
+                <option value="subnet-020cb3fa62e38cb07">Singapore My Default Subnet</option>
+            </select><br><br>
+
+            <button type="submit" id="submitButton">Create Server</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
