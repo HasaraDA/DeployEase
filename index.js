@@ -10,6 +10,7 @@ const app = express();
 const REPO_DIR = "D:/Scripts/AWS-Playbooks/WebApp/AWS-Playbooks";
 const YML_FILE = path.join(REPO_DIR, "vars.yml");
 const REMOTE_URL = "https://github.com/HasaraDA/AWS-Playbooks";
+const BRANCH = "v1.1";  // Set the branch to v1.1
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
     const {
+        user_email,
         instance_name,
         image,
         instance_type,
@@ -30,6 +32,7 @@ app.post("/", async (req, res) => {
     } = req.body;
 
     const data = {
+        user_email,
         instance_name,
         image,
         instance_type,
@@ -48,13 +51,19 @@ app.post("/", async (req, res) => {
             await git.cwd(REPO_DIR);
         }
 
-        await git.pull("origin", "main", {"--allow-unrelated-histories": null});
+        // Ensure we are on the correct branch before pulling
+        await git.checkout(BRANCH);
+        
+        // Pull latest changes from the v1.1 branch
+        await git.pull("origin", BRANCH, {"--allow-unrelated-histories": null});
 
+        // Write the updated data to the vars.yml file
         fs.writeFileSync(YML_FILE, yaml.stringify(data, 4), "utf8");
 
+        // Add, commit, and push the changes to the v1.1 branch
         await git.add("vars.yml");
         await git.commit("Update vars.yml");
-        await git.push("origin", "main");
+        await git.push("origin", BRANCH);
         
         res.send("YAML file generated, committed, and pushed to GitHub successfully!");
     } catch (error) {
