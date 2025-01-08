@@ -65,7 +65,7 @@ app.post("/", async (req, res) => {
         await git.commit("Update vars.yml");
         await git.push("origin", BRANCH);
         
-        res.send("YAML file generated, committed, and pushed to GitHub successfully!");
+        res.send("Your order has been confirmed. An email with the server details will be sent to you shortly.");
     } catch (error) {
         res.send(`Error with Git operations: ${error.message}`);
     }
