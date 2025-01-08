@@ -10,7 +10,7 @@ const app = express();
 const REPO_DIR = "D:/Scripts/AWS-Playbooks/WebApp/AWS-Playbooks";
 const YML_FILE = path.join(REPO_DIR, "vars.yml");
 const REMOTE_URL = "https://github.com/HasaraDA/AWS-Playbooks";
-const BRANCH = "v1.1";  // Set the branch to v1.1
+const BRANCH = "main";  // Set the branch to v1.1
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
