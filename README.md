@@ -44,7 +44,7 @@ Create_EC2_NodeApp/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/HasaraDA/Create_EC2_NodeApp.git
+git clone https://github.com/HasaraDA/DeployEase.git
 cd Create_EC2_NodeApp
 ```
 
@@ -88,14 +88,14 @@ By default, the application runs on **http://localhost:5000**.
 2. **Transfer Files**:
    Copy the project files to the EC2 instance using `scp`:
    ```bash
-   scp -r ./Create_EC2_NodeApp ec2-user@<EC2_PUBLIC_IP>:~/
+   scp -r ./DeployEase ec2-user@<EC2_PUBLIC_IP>:~/
    ```
 
 3. **Install Dependencies on the Instance**:
    SSH into the instance and install dependencies:
    ```bash
    ssh ec2-user@<EC2_PUBLIC_IP>
-   cd Create_EC2_NodeApp
+   cd DeployEase
    npm install
    ```
 
