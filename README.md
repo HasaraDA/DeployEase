@@ -1,4 +1,4 @@
-# Create_EC2_NodeApp
+# DeployEase
 
 A Node.js application designed for deployment on an AWS EC2 instance. This application demonstrates how to set up a simple Node.js project and deploy it to a cloud environment.
 
