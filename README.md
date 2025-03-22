@@ -14,7 +14,7 @@ A Node.js application designed for deployment on an AWS EC2 instance. This appli
 
 ---
 
-## Prerequisites
+## Prerequisites 
 
 Ensure the following software is installed on your system:
 
